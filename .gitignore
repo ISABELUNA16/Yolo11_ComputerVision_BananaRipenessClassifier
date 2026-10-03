@@ -1,2 +1,69 @@
-/.venv
-/__pycache__
+# ==========================================
+# ENTORNOS VIRTUALES Y PAQUETES
+# ==========================================
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+bin/
+lib/
+include/
+
+# ==========================================
+# ARCHIVOS CACHÉ Y TEMPORALES DE PYTHON
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+.cache/
+
+# ==========================================
+# DATASET Y ARCHIVOS PESADOS DE IMÁGENES
+# ==========================================
+# Carpeta de dataset dividida generada por 01_split_dataset.py
+banana_dataset_split/
+
+# Archivos comprimidos de dataset cargados manualmente
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ==========================================
+# ENTRENAMIENTO Y PESOS DEL MODELO (YOLO)
+# ==========================================
+# Carpetas de resultados de entrenamiento y experimentos
+banana_ripeness/
+runs/
+.ultralytics/
+
+# Pesos y modelos exportados
+*.pt
+*.pth
+*.onnx
+*.engine
+*.tflite
+
+# ==========================================
+# GRÁFICOS Y ARCHIVOS DE EVALUACIÓN
+# ==========================================
+# Imágenes y métricas generadas por 03_evaluate_model.py
+confusion_matrix_test.png
+confidence_scores_distribution.png
+
+# ==========================================
+# CONFIGURACIÓN DE IDEs Y EDITORES
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ==========================================
+# CONFIGURACIONES LOCALES DE STREAMLIT
+# ==========================================
+.streamlit/secrets.toml
