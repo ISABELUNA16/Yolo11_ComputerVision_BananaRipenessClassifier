@@ -1,4 +1,4 @@
-"""Pipeline en dos etapas: detectar plátano -> recorte cuadrado -> clasificar madurez."""
+#Pipeline en dos etapas: detectar plátano -> recorte cuadrado -> clasificar madurez
 from __future__ import annotations
 
 from PIL import Image, ImageOps
@@ -30,11 +30,7 @@ class BananaPipeline:
             raise ValueError(f"El detector no tiene clase 'banana'. Clases: {self.det.names}")
 
     def square_crop(self, img: Image.Image, box) -> Image.Image:
-        """Recorte CUADRADO centrado en la caja.
-
-        El clasificador de YOLO hace un recorte central cuadrado: si recibe un
-        recorte alargado (plátano horizontal), le cortaría las puntas.
-        """
+        # Recorte CUADRADO
         W, H = img.size
         x1, y1, x2, y2 = box
         cx, cy = (x1 + x2) / 2, (y1 + y2) / 2
