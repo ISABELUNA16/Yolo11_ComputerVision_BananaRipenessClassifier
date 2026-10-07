@@ -19,8 +19,11 @@ def main():
         device=device,
         project="BananaRipenessClasifier", # Nombre del proyecto donde se guardarán los resultados
         name="yolo_cls_experiment",    # Subcarpeta del experimento
+        exist_ok=True,                 # Sobrescribe la carpeta en vez de crear yolo_cls_experiment2
         workers=4,
-        lr0=0.001,                     # Learning rate inicial
+        optimizer="AdamW",             # Con optimizer='auto' Ultralytics ignora lr0
+        lr0=0.001,                     # Learning rate inicial (ahora sí se aplica)
+        seed=42,                       # Reproducibilidad
         pretrained=True                # Usar pesos preentrenados de ImageNet
     )
 
