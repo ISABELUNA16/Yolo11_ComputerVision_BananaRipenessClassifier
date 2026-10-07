@@ -22,13 +22,13 @@ Este proyecto implementa una solución completa de **Visión por Computadora** p
 
 ## 📖 Descripción del Proyecto
 
-Determinar con precisión el estado de madurez de las frutas es esencial para optimizar la cadena de suministro agrícola, la gestión de inventario y el control de calidad en centros de distribución. Este proyecto aplica técnicas de **Transfer Learning** sobre arquitecturas de clasificación de YOLO para predecir con alta confianza el grado de madurez de un plátano a partir de imágenes individuales.
+Determinar con precisión el estado de madurez del plátano es esencial para optimizar la cadena de suministro agrícola, la gestión de inventario y el control de calidad en centros de distribución. Este proyecto aplica técnicas de **Transfer Learning** sobre arquitecturas de clasificación de YOLO para predecir con alta confianza el grado de madurez de un plátano a partir de imágenes individuales.
 
 ---
 
 ## 📊 Dataset Utilizado
 
-El proyecto utiliza el conjunto de datos **BananaImageBD (v2)** alojado en Mendeley Data:
+El proyecto utiliza el conjunto de datos **BananaImageBD (v2)** alojado en [Mendeley Data](https://data.mendeley.com/datasets/ptfscwtnyz/2):
 - **Nombre:** `Augmented Banana Ripeness Detection Dataset.zip`
 - **Formato:** Imágenes JPEG recortadas a $256 \times 256$ píxeles.
 - **Clases (4):**
@@ -122,8 +122,6 @@ python 02_yolo_train.py
 ```
 *El script ajustará las imágenes a $256 \times 256$ durante 30 épocas y guardará los mejores pesos en `banana_ripeness/yolo_cls_experiment/weights/best.pt`.*
 
-> **Nota:** La exportación a ONNX es opcional. Si se omiten las dependencias nativas de exportación, los pesos en formato PyTorch (`best.pt`) son plenamente funcionales para evaluación y despliegue.
-
 ---
 
 ### 3. Evaluación del Modelo
@@ -152,8 +150,6 @@ La aplicación estará disponible localmente en `http://localhost:8501`. Permite
 
 ## 🛠️ Resolución de Problemas Frecuentes
 
-- **Directivas de seguridad en Windows (`ImportError: DLL load failed` / WDAC):**  
-  Ocurre cuando las directivas de seguridad o antivirus bloquean librerías nativas o binarias comprimidas (`.pyd` / `.dll`). Se soluciona utilizando la implementación de evaluación ligera integrada en `03_evaluate_model.py` (basada en NumPy/Matplotlib puro) y reejecutando en entornos con permisos estándar.
 - **Advertencias de Streamlit (`use_column_width` redefinido):**  
   En las versiones recientes de Streamlit, se debe reemplazar el parámetro `use_column_width=True` por `use_container_width=True` o `width="stretch"` en las llamadas a `st.image()`.
 - **Archivo no encontrado al ejecutar Streamlit (`File does not exist`):**  
