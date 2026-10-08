@@ -1,12 +1,5 @@
-"""Mide el filtro de detección "¿hay un plátano?" y sugiere el umbral DET_CONF.
-
-Uso:
-    python 05_evaluate_gate.py                       # positivos = dataset_split/test
-    python 05_evaluate_gate.py carpeta_fotos_reales  # positivos = tus propias fotos
-"""
 import sys
 from pathlib import Path
-
 import numpy as np
 from ultralytics import YOLO
 

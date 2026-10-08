@@ -1,7 +1,3 @@
-"""Descarga positivos y negativos de Open Images V7 para evaluar el filtro.
-
-Instalar antes:  python -m pip install fiftyone
-"""
 import fiftyone as fo
 import fiftyone.zoo as foz
 from fiftyone import ViewField as F
