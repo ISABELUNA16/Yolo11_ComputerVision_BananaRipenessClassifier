@@ -13,7 +13,7 @@ def main():
     # 3. Entrenar el modelo
     results = model.train(
         data="dataset_split",          # Ruta a la carpeta que contiene 'train' y 'val'
-        epochs=30,                     # 30 épocas para convergencia
+        epochs=30,                     # 50 épocas para convergencia sin sobreajustar
         imgsz=256,                     # Resolución nativa de BananaImageBD (256x256)
         batch=32,                      # Tamaño de batch
         device=device,
@@ -25,8 +25,14 @@ def main():
         lr0=0.001,                     # Learning rate inicial (ahora sí se aplica)
         seed=42,                       # Reproducibilidad
         pretrained=True                # Usar pesos preentrenados de ImageNet
+        hsv_h=0.0,                     # Desactiva la alteración de Tono (Hue). Evita que verde se vuelva amarillo.
+        hsv_s=0.1,                     # Pequeñas variaciones de saturación
+        hsv_v=0.2,                     # Simula variaciones de brillo/iluminación en la nave industrial
+        degrees=180,                   # Permite rotación completa para orientaciones en la faja
+        fliplr=0.5,                    # Espejado horizontal
+        flipud=0.5,                    # Espejado vertical
     )
-
+    
     # 4. Validacion  del modelo y obteneción métricas (Top-1 Accuracy)
     metrics = model.val()
     print(f"Top-1 Accuracy en validación: {metrics.top1:.4f}")
