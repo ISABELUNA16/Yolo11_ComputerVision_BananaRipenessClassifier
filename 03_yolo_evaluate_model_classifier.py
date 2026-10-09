@@ -8,7 +8,7 @@ from ultralytics import YOLO
 
 MODEL_PATH = "runs/classify/BananaRipenessClasifier/yolo_cls_experiment/weights/best.pt"
 TEST_DIR = "dataset_split/test"
-CONFUSION_MATRIX_SAVE_PATH = "confusion_matrix_test_v2.png"
+CONFUSION_MATRIX_SAVE_PATH = "confusion_matrix_test_v3.png"
 
 def evaluate_without_sklearn():
     if not os.path.exists(MODEL_PATH):

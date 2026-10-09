@@ -13,7 +13,7 @@ def main():
     # 3. Entrenar el modelo
     results = model.train(
         data="dataset_split",          # Ruta a la carpeta que contiene 'train' y 'val'
-        epochs=30,                     # 50 épocas para convergencia sin sobreajustar
+        epochs=50,                     # 50 épocas para convergencia sin sobreajustar
         imgsz=256,                     # Resolución nativa de BananaImageBD (256x256)
         batch=32,                      # Tamaño de batch
         device=device,
@@ -24,7 +24,7 @@ def main():
         optimizer="AdamW",             # Con optimizer='auto' Ultralytics ignora lr0
         lr0=0.001,                     # Learning rate inicial (ahora sí se aplica)
         seed=42,                       # Reproducibilidad
-        pretrained=True                # Usar pesos preentrenados de ImageNet
+        pretrained=True,                # Usar pesos preentrenados de ImageNet
         hsv_h=0.0,                     # Desactiva la alteración de Tono (Hue). Evita que verde se vuelva amarillo.
         hsv_s=0.1,                     # Pequeñas variaciones de saturación
         hsv_v=0.2,                     # Simula variaciones de brillo/iluminación en la nave industrial
